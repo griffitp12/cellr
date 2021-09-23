@@ -1,17 +1,26 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <MainView v-if="currentUser.isLoggedIn" />
+  <div v-else>
+    <Login />
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+import MainView from './views/MainView.vue';
+import Login from './views/Login.vue'
+import { AccessAuth } from './global/authStore';
 
 export default defineComponent({
   name: 'App',
   components: {
-    HelloWorld
-  }
+    MainView, Login
+  },
+  setup() {
+    let { currentUser } = AccessAuth();
+
+    return { currentUser };
+  },
 });
 </script>
 
