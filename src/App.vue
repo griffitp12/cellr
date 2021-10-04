@@ -1,25 +1,27 @@
 <template>
-  <MainView v-if="currentUser.isLoggedIn" />
+  <Header class="header-container"/>
+  <MainView v-if="authState.isUserLoggedIn" />
   <div v-else>
     <Login />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent} from 'vue';
 import MainView from './views/MainView.vue';
 import Login from './views/Login.vue'
-import { AccessAuth } from './global/authStore';
+import Header from './components/Header.vue'
+import { AccessAuthStore } from './global/authStore'
 
 export default defineComponent({
   name: 'App',
   components: {
-    MainView, Login
+    MainView, Login, Header
   },
   setup() {
-    let { currentUser } = AccessAuth();
+    const authState = AccessAuthStore()
 
-    return { currentUser };
+    return { authState };
   },
 });
 </script>
@@ -30,7 +32,13 @@ export default defineComponent({
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+}
+body {
+  width: 100vw;
+  margin: 0 auto
+}
+
+.header-container {
+  height: 10vh;
 }
 </style>

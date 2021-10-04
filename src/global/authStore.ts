@@ -1,22 +1,22 @@
-import { Ref, ref } from 'vue'
-import { CurrentUser, UserData, AuthStoreContents } from '../typescript/authTypes'
+import { reactive } from 'vue';
+import { UserData, AuthStoreContents } from '../typescript/authTypes';
 
-const currentUser: Ref<UserData> = ref({
-    username: "",
-    password: ""
-})
-
-const isUserLoggedIn= ref(false)
+const currentUser: UserData = {
+  username: '',
+  password: '',
+};
 
 const userList: UserData[] = [
-    {username: "Pete", password: "123"}, 
-    {username: "Meg", password: "123"}
-]
+  { username: 'Pete', password: '123' },
+  { username: 'Meg', password: '123' },
+];
 
-export function AccessAuth(): AuthStoreContents {
-    return {
-        currentUser,
-        userList,
-        isUserLoggedIn
-    }
-} 
+const authState: AuthStoreContents = reactive({
+  currentUser: currentUser,
+  userList: userList,
+  isUserLoggedIn: false
+});
+
+export function AccessAuthStore(): AuthStoreContents {
+  return authState;
+}

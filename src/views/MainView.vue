@@ -1,18 +1,18 @@
 <template>
-    <h1>"Hi {{user.username}}"</h1>
+    <h1>"Hi {{authState.currentUser.username}}"</h1>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { AccessAuth } from '../global/authStore'
+import { AccessAuthStore } from '../global/authStore'
 
 export default defineComponent({
   name: 'MainView',
 
   setup () {
-    let { currentUser } = AccessAuth()
-    console.log("MainView", currentUser)
-    return { currentUser }
+    let authState  = AccessAuthStore()
+    
+    return { authState }
   }
 });
 </script>

@@ -22,15 +22,14 @@
 
 <script lang="ts">
 import { defineComponent, ref, Ref } from 'vue';
-import { AccessAuth } from '../global/authStore';
+import { AccessAuthStore } from '../global/authStore';
 import { simpleLoginCheck } from '../utility/authFunctions';
-import { UserData } from '../typescript/authTypes'
 
 export default defineComponent({
-  setup() {
-    let { userList, currentUser } = AccessAuth();
-    let enteredUsername = ref('');
-    let enteredPassword = ref('');
+  setup(_, {emit}) {
+    let authState  = AccessAuthStore();
+    let enteredUsername: Ref<string> = ref('');
+    let enteredPassword: Ref<string> = ref('');
 
     const loginHandler = (e: Event) => {
       e.preventDefault();
@@ -38,12 +37,14 @@ export default defineComponent({
       let check = simpleLoginCheck(
         enteredUsername.value,
         enteredPassword.value,
-        userList
+        authState.userList
       );
       if (check === false) {
           alert("invalid username or password")
       } else {
-          (currentUser as UserData).username = check.username
+          console.log("redirecting")
+          authState.currentUser = check
+          authState.isUserLoggedIn = true
       }
     };
     return { loginHandler, enteredUsername, enteredPassword };
