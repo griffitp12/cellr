@@ -1,7 +1,7 @@
 <template>
   <div class="header">
-    <div v-if="authState.isUserLoggedIn">Welcome to your cellr, {{ authState.currentUser.username }}</div>
-    <div v-else>Welcome to cellr, please login!</div>
+    <div v-if="authState.isUserLoggedIn" class="header-text">Welcome to your cellr, {{ authState.currentUser.username }}</div>
+    <div v-else class="header-text">Welcome to cellr, please login!</div>
   </div>
 </template>
 
@@ -22,7 +22,11 @@ export default defineComponent({
 .header {
   background: rebeccapurple;
   display: flex;
-  align-content: center;
+  align-items: center;
   justify-content: center;
+}
+.header-text {
+    color: white;
+    font-size: 1.5em;
 }
 </style>
