@@ -9,28 +9,20 @@
       <th>Color (Red, White, etc)</th>
     </tr>
     <tr>
-        <td>Example Name</td>
-        <td>Camenbert</td>
-        <td>7 Federation Credits</td>
-        <td>11/10</td>
-        <td>White</td>
+      <td>Example Name</td>
+      <td>Camenbert</td>
+      <td>7 Federation Credits</td>
+      <td>11/10</td>
+      <td>White</td>
     </tr>
   </table>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
 import { AccessAuthStore } from '../global/authStore'
 
-export default defineComponent({
-  name: 'WineList',
+let authState = AccessAuthStore()
 
-  setup() {
-    let authState = AccessAuthStore()
-
-    return { authState }
-  },
-})
 </script>
 
 <style scoped></style>

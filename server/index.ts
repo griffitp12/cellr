@@ -3,7 +3,7 @@ import 'dotenv/config'
 // import typeDefs from './graphql/schema.js';
 // import resolvers from './graphql/resolvers.js';
 // import { ApolloServer } from 'apollo-server-express';
-import db from './knex/knex.js';
+import db from './knex.js';
 
 const app = express()
 const port = process.env.EXPRESS_PORT || 3000;

@@ -5,28 +5,23 @@
   </div>
 </template>
 
-<script lang="ts">
-import { AccessAuthStore } from '@/global/authStore'
-import { defineComponent } from 'vue'
+<script setup lang="ts">
+import { AccessAuthStore } from '../global/authStore'
+import { colors } from '../global/constants/constants'
 
-export default defineComponent({
-  setup() {
-    const authState = AccessAuthStore()
-
-    return { authState }
-  },
-})
+const authState = AccessAuthStore()
+const primary = colors.primary
 </script>
 
 <style scoped>
 .header {
-  background: rebeccapurple;
+  background: v-bind(primary);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .header-text {
-    color: white;
-    font-size: 1.5em;
+  color: white;
+  font-size: 1.5em;
 }
 </style>

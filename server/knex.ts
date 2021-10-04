@@ -1,5 +1,6 @@
-import devConfig from '../../knexfile.js';
+
 import Knex  from 'knex';
+import devConfig from '../knexfile'
 
 // this will have to get more involved if I want to switch between multiple configs
 
