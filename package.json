@@ -9,7 +9,8 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "back": "nodemon ./dist/server/index.js",
-    "makeMigration": "npx knex --knexfile ./knexfile.js migrate:make "
+    "makeMigration": "npx knex --knexfile ./knexfile migrate:make ",
+    "migrate": "npx knex --knexfile ./knexfile migrate:latest"
   },
   "dependencies": {
     "apollo-server-express": "^3.3.0",
@@ -19,7 +20,6 @@
     "express": "^4.17.1",
     "graphql": "^15.6.0",
     "knex": "^0.95.11",
-    "nodemon": "^2.0.13",
     "pg": "^8.7.1",
     "vue": "^3.0.0"
   },
@@ -34,6 +34,7 @@
     "@vue/eslint-config-typescript": "^7.0.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^7.0.0",
-    "typescript": "~4.1.5"
+    "typescript": "~4.1.5",
+    "nodemon": "^2.0.13"
   }
 }

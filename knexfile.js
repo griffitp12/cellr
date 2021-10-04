@@ -1,7 +1,6 @@
 import 'dotenv/config'
-import { Knex } from 'knex'
 
-const devConfig: Knex.Config = {
+const devConfig = {
     client: 'pg',
     connection: process.env.DATABASE_URL || {
       host: '127.0.0.1',
@@ -11,7 +10,7 @@ const devConfig: Knex.Config = {
     },
     migrations: {
       tableName: 'migrations',
-      directory: './dist/server/knex/migrations',
+      directory: './server/knex/migrations',
     },
     seeds: {
       directory: './data',
