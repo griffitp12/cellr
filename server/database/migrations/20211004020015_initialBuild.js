@@ -20,7 +20,7 @@ export async function up(knex) {
   
     await createUserTable()
     await createWineList()
-  };
+  }
   
   export async function down(knex) {
     const dropUserTable = () => {
@@ -33,5 +33,5 @@ export async function up(knex) {
   
     await dropUserTable()
     await dropWineList()
-  };
+  }
   

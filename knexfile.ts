@@ -10,10 +10,10 @@ const devConfig = {
     },
     migrations: {
       tableName: 'migrations',
-      directory: './server/knex/migrations',
+      directory: './server/database/migrations',
     },
     seeds: {
-      directory: './data',
+      directory: './server/database/seeds',
     },
 };
 
