@@ -6,6 +6,10 @@ module.exports = {
         target: 'http://localhost:3000',
         secure: false,
       },
+      '/wines': {
+        target: 'http://localhost:3000',
+        secure: false,
+      },
     },
   },
 };

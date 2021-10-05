@@ -4,24 +4,22 @@
     <tr>
       <th>Wine Name</th>
       <th>Varietal</th>
-      <th>Price</th>
-      <th>Rating</th>
       <th>Color (Red, White, etc)</th>
     </tr>
-    <tr>
-      <td>Example Name</td>
-      <td>Camenbert</td>
-      <td>7 Federation Credits</td>
-      <td>11/10</td>
-      <td>White</td>
+    <tr v-for="wine in wineState.allWinesList" :key="wine.name" >
+      <td> {{wine.name}}</td>
+      <td> {{wine.varietal}}</td>
+      <td> {{wine.color}}</td>
     </tr>
   </table>
 </template>
 
 <script setup lang="ts">
+import { AccessWineStore } from '@/global/store/wineStore';
 import { AccessAuthStore } from '../global/store/authStore'
 
 let authState = AccessAuthStore()
+let wineState = AccessWineStore()
 
 </script>
 

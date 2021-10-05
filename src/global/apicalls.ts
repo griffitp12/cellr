@@ -17,5 +17,5 @@ export const users = {
 }
 
 export const wines = {
-    getWines: (): Promise<Wine[]> => requests.get('/wines')
+    getWines: (): Promise<Wine[]> => requests.get('./wines')
 }

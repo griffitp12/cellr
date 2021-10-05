@@ -1,5 +1,6 @@
-import express, {Request, Response} from 'express'
+import express, { Request, Response } from 'express'
 import { UserData } from 'typescript/authTypes.js'
+import { Wine } from 'typescript/wineTypes'
 import 'dotenv/config'
 // import typeDefs from './graphql/schema.js';
 // import resolvers from './graphql/resolvers.js';
@@ -19,18 +20,27 @@ const setupServer = async () => {
 
   app.use('/users', async (req: Request, res: Response) => {
     try {
-        const users: UserData[] = await db('users')
-        res.status(200).send(users)
+      const users: UserData[] = await db('users')
+      res.status(200).send(users)
     } catch (err) {
-        res.status(500)
-        res.send(err)
+      res.status(500)
+      res.send(err)
     }
   })
-  // app.use('/wines', wines)
+  
+  app.use('/wines', async (req: Request, res: Response) => {
+    try {
+      const wines: Wine[] = await db('wines')
+      res.status(200).send(wines)
+    } catch (err) {
+      res.status(500)
+      res.send(err)
+    }
+  })
 
   app.listen(port, () => {
     console.log('app listening at port: ', port)
-  })
+  }) 
 }
 
 setupServer()

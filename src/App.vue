@@ -6,17 +6,33 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import MainView from './views/MainView.vue'
-import Login from './views/Login.vue'
-import Header from './components/Header.vue'
-import { AccessAuthStore } from './global/store/authStore' 
+<script lang="ts">
+import { defineComponent, defineAsyncComponent } from 'vue'
+import { AccessAuthStore } from './global/store/authStore'
+import { AccessWineStore } from './global/store/wineStore'
 import { setAllUsers, setAllWines } from './global/store/setters'
 
-const authState = AccessAuthStore()
-await setAllUsers()
-await setAllWines()
+export default defineComponent({
+  components: {
+    MainView: defineAsyncComponent(() => import('./views/MainView.vue')),
+    Login: defineAsyncComponent(() => import('./views/Login.vue')),
+    Header: defineAsyncComponent(() => import('./components/Header.vue')),
+  },
 
+  setup() {
+    const authState = AccessAuthStore()
+    const wineState = AccessWineStore()
+
+    const setStores = async () => {
+      await setAllUsers()
+      await setAllWines()
+    }
+
+    setStores()
+
+    return { authState, wineState }
+  },
+})
 </script>
 
 <style>
