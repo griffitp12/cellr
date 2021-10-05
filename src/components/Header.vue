@@ -1,6 +1,9 @@
 <template>
   <div class="header">
-    <div v-if="authState.isUserLoggedIn" class="header-text">Welcome to your cellr, {{ authState.currentUser.username }}</div>
+    <div v-if="authState.isUserLoggedIn" class="header-text">
+      <p>Welcome to your cellr, {{ authState.currentUser.username }}</p>
+      <router-link to="/addWine">Add a Wine</router-link>
+    </div>
     <div v-else class="header-text">Welcome to cellr, please login!</div>
   </div>
 </template>

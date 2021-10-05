@@ -13,15 +13,14 @@
     "migrate": "npx knex --knexfile ./knexfile migrate:latest"
   },
   "dependencies": {
-    "apollo-server-express": "^3.3.0",
     "axios": "^0.22.0",
     "core-js": "^3.6.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "graphql": "^15.6.0",
     "knex": "^0.95.11",
     "pg": "^8.7.1",
-    "vue": "^3.2.0"
+    "vue": "^3.2.0",
+    "vue-router": "^4.0.11"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.18.0",

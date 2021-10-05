@@ -13,3 +13,15 @@ module.exports = {
     },
   },
 };
+
+
+
+import Vue from 'vue'
+import App from './App.vue'
+import VueRouter from 'vue-router'
+
+const app = Vue.createApp(App)
+
+App.use(VueRouter)
+
+app.mount('#app')

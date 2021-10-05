@@ -11,7 +11,7 @@ const allUserList: UserData[] = [];
 const authState: AuthStoreContents = reactive({
   currentUser: currentUser,
   userList: allUserList,
-  isUserLoggedIn: false,
+  isUserLoggedIn: true,
 });
 
 export function AccessAuthStore(): AuthStoreContents {
