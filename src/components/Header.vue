@@ -1,10 +1,13 @@
 <template>
-  <div class="header">
-    <div v-if="authState.isUserLoggedIn" class="header-text">
-      <p>Welcome to your cellr, {{ authState.currentUser.username }}</p>
-      <router-link to="/addWine">Add a Wine</router-link>
+  <div >
+    <div v-if="authState.isUserLoggedIn" class="header">
+      <p class="header-text">Welcome, {{ authState.currentUser.username }}!</p>
+      <router-link to="/addWine"><button>Add a Wine</button></router-link>
+      <router-link to="/"><button>See your Cellr</button></router-link>
     </div>
-    <div v-else class="header-text">Welcome to cellr, please login!</div>
+    <div v-else class="header">
+      <p class="header-text">Welcome to cellr, please login!</p>
+    </div>
   </div>
 </template>
 
@@ -22,6 +25,7 @@ const primary = colors.primary
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: row;
 }
 .header-text {
   color: white;

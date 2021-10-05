@@ -32,7 +32,7 @@
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx",
-    "server/**/*.ts",
+    "server/**/*.ts", "server/database/migrations/20211004020015_initialBuild.js", "server/database/migrations/20211005021217_alpha2.js", "server/database/seeds/initialSeed.js",
   ],
   "exclude": [
     "node_modules"

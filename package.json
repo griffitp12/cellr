@@ -2,15 +2,14 @@
   "name": "cellr",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
   "scripts": {
-    "pg": "psql -U postgres",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "back": "nodemon ./dist/server/index.js",
     "makeMigration": "npx knex --knexfile ./knexfile migrate:make ",
-    "migrate": "npx knex --knexfile ./knexfile migrate:latest"
+    "migrate": "npx knex --knexfile ./knexfile migrate:latest",
+    "pg": "psql -U postgres"
   },
   "dependencies": {
     "axios": "^0.22.0",
@@ -27,6 +26,7 @@
     "@typescript-eslint/parser": "^4.18.0",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-plugin-typescript": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
@@ -35,5 +35,6 @@
     "eslint-plugin-vue": "^7.0.0",
     "nodemon": "^2.0.13",
     "typescript": "~4.1.5"
-  }
+  },
+  "type": "module"
 }

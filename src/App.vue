@@ -5,7 +5,7 @@
       <Login />
     </div>
     <div v-else>
-      <MainView />
+      <router-view></router-view>
     </div>
   </div>
 </template>
@@ -18,7 +18,6 @@ import { setAllUsers, setAllWines } from './global/store/setters'
 
 export default defineComponent({
   components: {
-    MainView: defineAsyncComponent(() => import('./views/MainView.vue')),
     Login: defineAsyncComponent(() => import('./views/Login.vue')),
     Header: defineAsyncComponent(() => import('./components/Header.vue')),
   },
@@ -55,5 +54,9 @@ body {
 }
 .app-container {
   margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 </style>
