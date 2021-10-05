@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import { AccessAuthStore } from '../global/authStore'
+import { AccessAuthStore } from '../global/store/authStore'
 
 let authState = AccessAuthStore()
 

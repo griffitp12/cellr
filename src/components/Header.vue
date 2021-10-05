@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts">
-import { AccessAuthStore } from '../global/authStore'
+import { AccessAuthStore } from '../global/store/authStore'
 import { colors } from '../global/constants/constants'
 
 const authState = AccessAuthStore()

@@ -12,14 +12,14 @@
 
 <script setup lang="ts">
 import { ref, Ref } from 'vue'
-import { AccessAuthStore } from '../global/authStore'
+import { AccessAuthStore } from '../global/store/authStore'
 import { simpleLoginCheck } from '../global/utility/authFunctions'
 
 let authState = AccessAuthStore()
 let enteredUsername: Ref<string> = ref('')
 let enteredPassword: Ref<string> = ref('')
 
-const loginHandler = (e: Event) => {
+const loginHandler = async (e: Event) => {
   e.preventDefault()
   let check = simpleLoginCheck(enteredUsername.value, enteredPassword.value, authState.userList)
   if (check === false) {

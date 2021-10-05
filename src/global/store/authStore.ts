@@ -1,5 +1,5 @@
 import { reactive } from 'vue';
-import { UserData, AuthStoreContents } from '../../typescript/authTypes';
+import { UserData, AuthStoreContents } from '../../../typescript/authTypes';
 
 const currentUser: UserData = {
   username: 'Pete',
