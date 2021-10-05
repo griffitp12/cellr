@@ -1,19 +1,16 @@
 import { reactive } from 'vue';
-import { UserData, AuthStoreContents } from './typescript/authTypes';
+import { UserData, AuthStoreContents } from '../../typescript/authTypes';
 
 const currentUser: UserData = {
   username: 'Pete',
   password: '123',
 };
 
-const userList: UserData[] = [
-  { username: 'Pete', password: '123' },
-  { username: 'Meg', password: '123' },
-];
+const allUserList: UserData[] = [];
 
 const authState: AuthStoreContents = reactive({
   currentUser: currentUser,
-  userList: userList,
+  userList: allUserList,
   isUserLoggedIn: false,
 });
 

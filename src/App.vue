@@ -10,9 +10,13 @@
 import MainView from './views/MainView.vue'
 import Login from './views/Login.vue'
 import Header from './components/Header.vue'
-import { AccessAuthStore } from './global/authStore'
+import { AccessAuthStore } from './global/authStore' 
+import { getAllUsers } from './global/utility/authFunctions'
+
 
 const authState = AccessAuthStore()
+const users = await getAllUsers()
+console.log(users)
 </script>
 
 <style>
