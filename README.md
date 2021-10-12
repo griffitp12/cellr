@@ -51,7 +51,7 @@ NOTE: The frontend of this app is just a placeholder for now.
 
 The Frontend is currently just a placeholder. At the moment I'm focusing on code architecture and developing my api.
 
-TEST
+TEST 2
 
 ### Next Steps
 
