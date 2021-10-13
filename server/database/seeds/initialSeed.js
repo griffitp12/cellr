@@ -1,5 +1,5 @@
-import userList  from '../../../dist/server/database/seeds/data/users.js'
-import wineList from '../../../dist/server/database/seeds/data/wines.js'
+import userList  from './data/users.js'
+import wineList from './data/wines.js'
 
 export async function seed(knex) {
   // Deletes ALL existing entries

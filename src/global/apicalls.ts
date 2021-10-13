@@ -1,21 +1,23 @@
-import axios, { AxiosResponse } from 'axios' 
+import axios, { AxiosResponse } from 'axios'
 import { Wine } from '../../typescript/wineTypes'
 import { UserData } from 'typescript/authTypes'
 
 const instance = axios.create({
-    timeout: 10000
+  timeout: 10000,
 })
 
-const responseBody = (response: AxiosResponse) => response.data
+const responseBody = (response: AxiosResponse<any>) => response.data
 
-const requests ={ 
-    get: (url: string) => instance.get(url).then(responseBody)
+const requests = {
+  get: (url: string) => instance.get(url).then(responseBody),
+  post: (url: string, data: Wine) => instance.post(url, data).then(responseBody),
 }
 
 export const users = {
-    getUsers: (): Promise<UserData[]> => requests.get('./users')
+  getUsers: (): Promise<UserData[]> => requests.get('./users'),
 }
 
 export const wines = {
-    getWines: (): Promise<Wine[]> => requests.get('./wines')
+  getWines: (): Promise<Wine[]> => requests.get('./wines/allWines'),
+  postWine: (wine: Wine): Promise<void> => requests.post('./wines/postWine', wine)
 }

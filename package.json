@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "back": "nodemon ./dist/server/index.js",
+    "back": "nodemon ./server/index.js",
     "makeMigration": "npx knex --knexfile ./knexfile migrate:make ",
     "migrate": "npx knex --knexfile ./knexfile migrate:latest",
     "pg": "psql -U postgres"

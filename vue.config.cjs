@@ -2,14 +2,10 @@ module.exports = {
   devServer: {
     port: 8080,
     proxy: {
-      '/users': {
-        target: 'http://localhost:3000',
+      '/': {
+        target: 'htto://localhost:3000',
         secure: false,
-      },
-      '/wines': {
-        target: 'http://localhost:3000',
-        secure: false,
-      },
+      }
     },
   },
 };

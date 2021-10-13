@@ -1,10 +1,10 @@
 import { Router, Request, Response } from 'express'
 import { UserData } from '../../typescript/authTypes'
-import db from '../knex'
+import db from '../knex.js'
 
 const routes: Router = Router()
 
-routes.get('/users', async (req: Request, res: Response): Promise<void> => {
+routes.get('/', async (req: Request, res: Response): Promise<void> => {
     try {
         const users: UserData[] = await db('users')
         res.status(200).send(users)

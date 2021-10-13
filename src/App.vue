@@ -1,6 +1,6 @@
 <template>
   <Header class="header-container" />
-  <div class=" app-container">
+  <div class=" app-container flex-container-col">
     <div v-if="!authState.isUserLoggedIn">
       <Login />
     </div>
@@ -26,8 +26,10 @@ export default defineComponent({
     const authState = AccessAuthStore()
     const wineState = AccessWineStore()
 
-    const setStores = async () => {
+    const setStores = async () => { 
+      console.log('setting all users')
       await setAllUsers()
+      console.log('setting all wines')
       await setAllWines()
     }
 
@@ -50,10 +52,13 @@ body {
   margin: 0 auto;
 }
 .header-container {
-  height: 10vh;
+  height: auto;
 }
 .app-container {
   margin: 5px;
+}
+
+.flex-container-col {
   display: flex;
   align-items: center;
   justify-content: center;

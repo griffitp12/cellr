@@ -14,4 +14,4 @@ export default [
         varietal: 'Cabernet',
         color: 'Red'
     }
-]
+];
