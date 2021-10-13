@@ -49,14 +49,7 @@ NOTE: The frontend of this app is just a placeholder for now.
 
 ## Project Status
 
-The Frontend is currently just a placeholder. At the moment I'm focusing on code architecture and developing my api.
-
-### Next Steps
-
-- Finish POST route to be able to add a wine
-
-- Add ability to add a price, purchase location, and rating to a wine
-    - These will be user specific functions and so will require a database addition
+The Frontend is currently just a placeholder. At the moment I'm focusing on code architecture and developing the api.
 
 ## Instillation and setup instructions
 Fork, clone, and then
@@ -80,7 +73,7 @@ Fork, clone, and then
 
 ## Reflection
 
-Stay tuned!
+SSo far, this has been an excellent exercise in re-familiarizing myself with working with REST API design. There's still a long way to go, and I'm particularly looking forward to designing a many to many database schema that works :laughing:
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
