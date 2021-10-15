@@ -15,5 +15,5 @@ export const wines = {
     postWine: (wine) => requests.post('./wines/postWine', wine)
 };
 export const encounters = {
-    encountersByWine: (wineName) => requests.get(`./encounters/:${wineName}`),
+    encountersByWine: (wineName) => requests.get(`./encounters/${wineName}`),
 };

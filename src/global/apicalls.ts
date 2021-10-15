@@ -23,5 +23,5 @@ export const wines = {
 }
 
 export const encounters = {
-  encountersByWine: (wineName: string): Promise<WineEncounter[]> => requests.get(`./encounters/:${wineName}`),
+  encountersByWine: (wineName: string): Promise<WineEncounter[]> => requests.get(`./encounters/${wineName}`),
 }

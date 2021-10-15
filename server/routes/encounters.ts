@@ -6,11 +6,9 @@ const routes: Router = Router()
 
 routes.get('/:wineName', async (req: Request, res: Response) => {
   try {
-    console.log('hi')
-    const wineName  = req.params
-    console.log(req.params)
-    //const encounters: WineEncounter[] = await db('encounters').where()
-    res.status(200).send(wineName)
+    const { wineName }  = req.params
+    const encounters: WineEncounter[] = await db('encounters').where('name', wineName)
+    res.status(200).send(encounters)
   } catch (err) {
     res.status(500)
     res.send(err)
