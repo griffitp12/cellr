@@ -1,4 +1,4 @@
-# cellr 0.0.1
+# cellr 0.1.0
 
 A project to help keep track of what Wines my wife and I like.
 
