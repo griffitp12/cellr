@@ -5,6 +5,7 @@ export interface Wine {
 }
 
 export interface WineStoreContents {
-    allWinesList: Wine[]
+    allWinesList: Wine[],
+    currentWine: Wine
   }
   

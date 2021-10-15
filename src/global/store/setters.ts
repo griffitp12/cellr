@@ -1,18 +1,24 @@
 import { AccessAuthStore } from "./authStore"
 import { AccessWineStore } from "./wineStore"
 import { wines, users } from "../apicalls"
+import { Wine } from '../../../typescript/wineTypes'
 
-export const setAllWines = async () => {
+const wineStore = AccessWineStore()
+const authStore = AccessAuthStore()
+
+export const setAllWines = async (): Promise<void> => {
     const getter = await wines.getWines()
-    const wineStore = AccessWineStore()
     for (const element of getter) {
         wineStore.allWinesList.push(element)
     }
 }
 
-export const setAllUsers = async () => {
+export const setCurrentWine = (clickedWine: Wine): void => {
+    wineStore.currentWine = clickedWine
+}
+
+export const setAllUsers = async (): Promise<void> => {
     const getter = await users.getUsers()
-    const authStore = AccessAuthStore()
     for (const element of getter) {
         authStore.userList.push(element)
     }
