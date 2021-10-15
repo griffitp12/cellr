@@ -1,13 +1,15 @@
 import userList  from './data/users.js'
 import wineList from './data/wines.js'
+import encountersList from './data/encounters.js'
 
 export async function seed(knex) {
   // Deletes ALL existing entries
   const deleteAllTables = () => {
-    return knex('users')
-      .del()
+    return knex('users').del()
       .then(function() {
         return knex('wines').del()
+      }).then(function() {
+        return knex('encounters').del()
       })
   }
 
@@ -25,7 +27,15 @@ export async function seed(knex) {
     }
   }
 
+  const seedEncounters = async () => {
+    let encounters = encountersList
+    for (let encounter of encounters) {
+      await knex('encounters').insert(encounter)
+    }
+  }
+
   await deleteAllTables()
   await seedUsers()
   await seedWines()
+  await seedEncounters()
 }
