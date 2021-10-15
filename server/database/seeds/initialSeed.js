@@ -7,9 +7,9 @@ export async function seed(knex) {
   const deleteAllTables = () => {
     return knex('users').del()
       .then(function() {
-        return knex('wines').del()
-      }).then(function() {
         return knex('encounters').del()
+      }).then(function() {
+        return knex('wines').del()
       })
   }
 

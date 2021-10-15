@@ -3,16 +3,49 @@
     <div class="overlay"></div>
     <div class="modal_content">
       <h2>Here are the details for {{ wineState.currentWine.name }}</h2>
-      <p>Here are some details with some bells and whistles later</p>
+      <div v-if="isLoading">
+        <p>One moment, please...</p>
+      </div>
+      <div v-else>
+        <table class="encounters-table">
+          <tr class="encounters-row">
+            <th>Price</th>
+            <th>Purchase Location</th>
+            <th>Rating</th>
+            <th>Notes</th>
+            <th>Date</th>
+          </tr>
+          <tr class="encounters-row" v-for="encounter in encounterList" :key="encounter.id">
+            <td>{{ encounter.bottle_price }}</td>
+            <td>{{ encounter.purchase_location }}</td>
+            <td>{{ encounter.rating }}</td>
+            <td>{{ encounter.notes }}</td>
+            <td>{{ encounter.encounter_date }}</td>
+          </tr>
+        </table>
+      </div>
+
       <button title="Close" class="close_modal" @click="$emit('closeModal')">X</button>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+  import { ref, Ref } from 'vue'
   import { AccessWineStore } from '../global/store/wineStore'
-
+  import { WineEncounter } from '../../typescript/wineTypes'
+  import { encounters } from '@/global/apicalls'
   const wineState = AccessWineStore()
+  const encounterList: Ref<WineEncounter[]> = ref([])
+  const isLoading = ref(true)
+
+  const setEncounters = async () => {
+    encounterList.value = await encounters.encountersByWine(wineState.currentWine.name)
+    isLoading.value = false
+  }
+
+  setEncounters()
+  
 </script>
 
 <style>

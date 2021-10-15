@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios'
-import { Wine } from '../../typescript/wineTypes'
+import { Wine, WineEncounter } from '../../typescript/wineTypes'
 import { UserData } from 'typescript/authTypes'
 
 const instance = axios.create({
@@ -20,4 +20,8 @@ export const users = {
 export const wines = {
   getWines: (): Promise<Wine[]> => requests.get('./wines/allWines'),
   postWine: (wine: Wine): Promise<void> => requests.post('./wines/postWine', wine)
+}
+
+export const encounters = {
+  encountersByWine: (wineName: string): Promise<WineEncounter[]> => requests.get(`./encounters/${wineName}`),
 }

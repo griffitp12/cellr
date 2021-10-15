@@ -8,7 +8,7 @@ export async function up(knex) {
             t.string('purchase_location').defaultTo('unknown')
             t.integer('rating')
             t.string('notes').defaultTo('')
-            t.timestamp('created_at').defaultTo(knex.fn.now())
+            t.timestamp('encounter_date').defaultTo(knex.fn.now())
         })
     }
 
