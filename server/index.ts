@@ -3,6 +3,7 @@ import 'dotenv/config'
 import db from './knex.js'
 import users from './routes/users.js'
 import wines from './routes/wines.js'
+import encounters from './routes/encounters.js'
 
 const port = process.env.EXPRESS_PORT || 3000
 
@@ -21,6 +22,7 @@ const setupServer = async () => {
   // API routes
   app.use('/users', users)
   app.use('/wines', wines)
+  app.use('/encounters', encounters)
 
   
 
