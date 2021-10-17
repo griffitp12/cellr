@@ -16,12 +16,12 @@ routes.get('/:wineName', async (req: Request, res: Response) => {
 })
 
 // Still trying to get this route to go through. FOr some reason, the .del() is giving a weird error.
-routes.get('/delete/:encounterId', async (req: Request, res: Response) => {
+routes.delete('/delete/:encounterId', async (req: Request, res: Response) => {
   try {
     const { encounterId }  = req.params
     const intEncounterId: number = +encounterId
-    const encounter = await db('encounters').where('id', intEncounterId).del()
-    res.status(200).send(encounter)
+    await db('encounters').where('id', intEncounterId).del()
+    res.status(200).send(intEncounterId)
   } catch (err) {
     res.status(500)
     res.send(err)
