@@ -25,4 +25,16 @@ routes.post('/postWine', async (req: Request, res: Response) => {
   }
 })
 
+routes.delete('/deleteWine/:wineName', async (req, res) => {
+  try {
+      const { wineName } = req.params;
+      await db('wines').where('name', wineName).del()
+      res.status(200).end()
+  }
+  catch (err) {
+      res.status(500);
+      res.send(err);
+  }
+});
+
 export default routes
