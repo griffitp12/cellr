@@ -73,8 +73,7 @@ Fork, clone, and then
 
 ## Reflection
 
-SSo far, this has been an excellent exercise in re-familiarizing myself with working with REST API design. There's still a long way to go, and I'm particularly looking forward to designing a many to many database schema that works :laughing:
-
+So far, this has been an excellent exercise in re-familiarizing myself with working with REST API design!
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
