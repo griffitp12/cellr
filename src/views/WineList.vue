@@ -4,11 +4,13 @@
     <tr class="wine-row">
       <th>Wine Name</th>
       <th>Varietal</th>
+      <th>Vintage</th>
       <th>Color (Red, White, etc)</th>
     </tr>
     <tr class="wine-row" v-for="wine in wineState.allWinesList" :key="wine.name" :name="wine.name" @click="wineClickHandler(wine)">
       <td>{{ wine.name }}</td>
       <td>{{ wine.varietal }}</td>
+      <td>{{ wine.vintage }}</td>
       <td>{{ wine.color }}</td>
     </tr>
   </table>

@@ -26,26 +26,44 @@
       </div>
 
       <button title="Close" class="close_modal" @click="$emit('closeModal')">X</button>
+      <button title="Delete" class="delete_button" @click="deleteWine">Delete Wine</button>
     </div>
   </div>
 </template>
 
-<script setup lang="ts">
-  import { ref, Ref } from 'vue'
+<script lang="ts">
+  import { ref, Ref, defineComponent } from 'vue'
   import { AccessWineStore } from '../global/store/wineStore'
   import { WineEncounter } from '../../typescript/wineTypes'
-  import { encounters } from '@/global/apicalls'
-  const wineState = AccessWineStore()
-  const encounterList: Ref<WineEncounter[]> = ref([])
-  const isLoading = ref(true)
+  import { encounters, wines } from '@/global/apicalls'
 
-  const setEncounters = async () => {
-    encounterList.value = await encounters.encountersByWine(wineState.currentWine.name)
-    isLoading.value = false
-  }
+  export default defineComponent({
+    setup(_, context) {
+      const wineState = AccessWineStore()
+      const encounterList: Ref<WineEncounter[]> = ref([])
+      const isLoading = ref(true)
 
-  setEncounters()
-  
+      const setEncounters = async () => {
+        if (wineState.currentWine.id) {
+          encounterList.value = await encounters.getEncountersByWine(wineState.currentWine.id)
+        } else {
+          alert("wine doesn't exist")
+        }
+        isLoading.value = false
+      }
+
+      setEncounters()
+
+      const deleteWine = async () => {
+        if (wineState.currentWine.id) {
+          await wines.deleteWine(wineState.currentWine.id)
+        }
+        context.emit('closeModal')
+      }
+
+      return { deleteWine, encounterList, wineState, isLoading }
+    },
+  })
 </script>
 
 <style>
@@ -103,5 +121,10 @@
 
   .wine-modal .close_modal:hover {
     opacity: 0.9;
+  }
+
+  .delete_button {
+    background: red;
+    cursor: pointer;
   }
 </style>

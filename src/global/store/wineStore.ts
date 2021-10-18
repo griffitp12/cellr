@@ -3,8 +3,10 @@ import { Wine, WineStoreContents } from '../../../typescript/wineTypes';
 
 const allWinesList: Wine[] = [];
 const currentWine: Wine = {
+  id: 0,
   name: '',
   varietal: '',
+  vintage: 0,
   color: '',
 }
 

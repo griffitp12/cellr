@@ -22,10 +22,11 @@ routes.post('/postWine', async (req, res) => {
         res.send(err);
     }
 });
-routes.delete('/deleteWine/:wineName', async (req, res) => {
+routes.delete('/deleteWine/:wine_id', async (req, res) => {
     try {
-        const { wineName } = req.params;
-        await db('wines').where('name', wineName).del();
+        const { wine_id } = req.params;
+        const int_wine_id = +wine_id;
+        await db('wines').where('id', int_wine_id).del();
         res.status(200).end();
     }
     catch (err) {

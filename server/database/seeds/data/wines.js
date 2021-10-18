@@ -8,7 +8,6 @@ export default [
     {
         name: 'Andoran White',
         varietal: 'Cabernet',
-        vintage: 2019,
         color: 'White'
     },
     {
