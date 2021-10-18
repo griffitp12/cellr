@@ -4,11 +4,21 @@ import db from '../knex.js'
 
 const routes: Router = Router()
 
-routes.get('/:wineName', async (req: Request, res: Response) => {
+routes.get('/:wine_id', async (req: Request, res: Response) => {
   try {
-    const { wineName }  = req.params
-    const encounters: WineEncounter[] = await db('encounters').where('name', wineName)
+    const { wine_id }  = req.params
+    const encounters: WineEncounter[] = await db('encounters').where('id', wine_id)
     res.status(200).send(encounters)
+  } catch (err) {
+    res.status(500)
+    res.send(err)
+  }
+})
+
+routes.post('/postEncounter', async (req: Request, res: Response) => {
+  try {
+    const newEncounter = req.body
+    res.status(200).send(newEncounter)
   } catch (err) {
     res.status(500)
     res.send(err)

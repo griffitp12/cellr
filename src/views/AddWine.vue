@@ -8,6 +8,9 @@
       <input type="text" name="varietal" v-model="varietal" />
       <label for="varietal"> Varietal</label>
       <br />
+      <input type="text" name="vintage" v-model="vintage" />
+      <label for="vintage"> Vintage</label>
+      <br />
       <input type="text" name="color" v-model="color"/>
       <label for="color">Color</label>
       <br>
@@ -23,6 +26,7 @@
 
   const wineName = ref('')
   const varietal = ref('')
+  const vintage = ref('')
   const color = ref('')
 
 
@@ -31,6 +35,7 @@
     const newWine: Wine = {
       name: wineName.value,
       varietal: varietal.value,
+      vintage: +vintage.value,
       color: color.value
     }
     wines.postWine(newWine)

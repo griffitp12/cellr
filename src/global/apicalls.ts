@@ -10,7 +10,8 @@ const responseBody = (response: AxiosResponse<any>) => response.data
 
 const requests = {
   get: (url: string) => instance.get(url).then(responseBody),
-  post: (url: string, data: Wine) => instance.post(url, data).then(responseBody),
+  post: (url: string, data: any) => instance.post(url, data).then(responseBody),
+  delete: (url: string) => instance.delete(url).then(responseBody)
 }
 
 export const users = {
@@ -19,9 +20,11 @@ export const users = {
 
 export const wines = {
   getWines: (): Promise<Wine[]> => requests.get('./wines/allWines'),
-  postWine: (wine: Wine): Promise<void> => requests.post('./wines/postWine', wine)
+  postWine: (wine: Wine): Promise<void> => requests.post('./wines/postWine', wine),
+  deleteWine: (wine_id: number): Promise<void> => requests.delete(`/wines/deleteWine/${wine_id}`)
 }
 
 export const encounters = {
-  encountersByWine: (wineName: string): Promise<WineEncounter[]> => requests.get(`./encounters/${wineName}`),
+  getEncountersByWine: (wine_id: number): Promise<WineEncounter[]> => requests.get(`./encounters/${wine_id}`),
+  postEncounter: (newEncounter: WineEncounter): Promise<WineEncounter> => requests.post(`./encounters/postEncounter`, newEncounter),
 }

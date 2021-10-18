@@ -2,7 +2,7 @@
 export async function up(knex) {
     const addWineName = () => {
         return knex.schema.table('wines', (t) => {
-            t.integer('vintage').notNull()
+            t.integer('vintage')
         })
     }
     await addWineName()

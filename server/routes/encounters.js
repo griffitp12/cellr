@@ -1,11 +1,21 @@
 import { Router } from 'express';
 import db from '../knex.js';
 const routes = Router();
-routes.get('/:wineName', async (req, res) => {
+routes.get('/:wine_id', async (req, res) => {
     try {
-        const { wineName } = req.params;
-        const encounters = await db('encounters').where('name', wineName);
+        const { wine_id } = req.params;
+        const encounters = await db('encounters').where('id', wine_id);
         res.status(200).send(encounters);
+    }
+    catch (err) {
+        res.status(500);
+        res.send(err);
+    }
+});
+routes.post('/postEncounter', async (req, res) => {
+    try {
+        const newEncounter = req.body;
+        res.status(200).send(newEncounter);
     }
     catch (err) {
         res.status(500);
