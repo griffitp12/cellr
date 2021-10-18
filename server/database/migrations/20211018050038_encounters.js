@@ -3,7 +3,7 @@ export async function up(knex) {
     const createEncountersTable = () => {
         return knex.schema.createTable('encounters', (t) => {
             t.increments('id').primary()
-            t.string('name').references('wines.name')
+            t.integer('wine_id').references('wines.id')
             t.integer('bottle_price')
             t.string('purchase_location').defaultTo('unknown')
             t.integer('rating')

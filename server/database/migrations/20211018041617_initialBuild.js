@@ -8,8 +8,9 @@ export async function up(knex) {
     }
     const createWineList = () => {
         return knex.schema.createTable('wines', (t) => {
-            t.string('name').primary()
-            t.string('varietal').notNull()
+            t.increments('id').primary()
+            t.string('name')
+            t.string('varietal')
             t.integer('price').notNull()
             t.string('purchase_location').notNull()
             t.integer('rating').notNull()
