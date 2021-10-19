@@ -22,12 +22,22 @@ routes.post('/postWine', async (req, res) => {
         res.send(err);
     }
 });
+routes.patch('/patchWine/:wine_id', async (req, res) => {
+    try {
+        const { wine_id } = req.params;
+        const wineUpdates = req.body;
+    }
+    catch (err) {
+        res.status(500);
+        res.send(err);
+    }
+});
 routes.delete('/deleteWine/:wine_id', async (req, res) => {
     try {
         const { wine_id } = req.params;
         const int_wine_id = +wine_id;
         await db('wines').where('id', int_wine_id).del();
-        res.status(200).end();
+        res.status(202).end();
     }
     catch (err) {
         res.status(500);
@@ -35,3 +45,15 @@ routes.delete('/deleteWine/:wine_id', async (req, res) => {
     }
 });
 export default routes;
+routes.delete('/deleteWine/:wine_id', async (req, res) => {
+    try {
+        const { wine_id } = req.params;
+        const int_wine_id = +wine_id;
+        await db('wines').where('id', int_wine_id).del();
+        res.status(202).end();
+    }
+    catch (err) {
+        res.status(500);
+        res.send(err);
+    }
+});
