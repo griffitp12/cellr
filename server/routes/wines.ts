@@ -14,7 +14,7 @@ routes.get('/allWines', async (req: Request, res: Response) => {
   }
 })
 
-routes.post('/postWine', async (req: Request, res: Response) => {
+routes.post('/post', async (req: Request, res: Response) => {
   try {
     const newWine = req.body
     await db('wines').insert(newWine)
@@ -25,6 +25,7 @@ routes.post('/postWine', async (req: Request, res: Response) => {
   }
 })
 
+// This is a work in progress, obviously
 routes.patch('/patchWine/:wine_id', async (req: Request, res: Response) => {
   try { 
     const { wine_id } = req.params
@@ -35,7 +36,7 @@ routes.patch('/patchWine/:wine_id', async (req: Request, res: Response) => {
   }
 })
 
-routes.delete('/deleteWine/:wine_id', async (req: Request, res: Response) => {
+routes.delete('/delete/:wine_id', async (req: Request, res: Response) => {
   try {
       const { wine_id } = req.params;
       const int_wine_id = +wine_id
@@ -49,17 +50,3 @@ routes.delete('/deleteWine/:wine_id', async (req: Request, res: Response) => {
 });
 
 export default routes
-
-
-routes.delete('/deleteWine/:wine_id', async (req: Request, res: Response) => {
-  try {
-      const { wine_id } = req.params;
-      const int_wine_id = +wine_id
-      await db('wines').where('id', int_wine_id).del()
-      res.status(202).end()
-  }
-  catch (err) {
-      res.status(500);
-      res.send(err);
-  }
-});

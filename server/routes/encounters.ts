@@ -25,7 +25,7 @@ routes.get('/:wine_id', async (req: Request, res: Response) => {
   }
 })
 
-routes.post('/postEncounter/:wine_id', async (req: Request, res: Response) => {
+routes.post('/post/:wine_id', async (req: Request, res: Response) => {
   try {
     const { wine_id } = req.params
     const newEncounter = req.body
